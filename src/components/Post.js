@@ -9,10 +9,10 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
     card: {
         display: 'flex',
-        marginBottom: 20
+        marginBottom: 10
     },
     content: {
-        padding: 25,
+        padding: 20,
         objectFit: 'cover'
     }
 }

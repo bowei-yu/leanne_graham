@@ -60,7 +60,7 @@ class home extends Component {
                 filterSelectedOptions
                 getOptionLabel={(option) => option.name}
                 onChange={this.onUserChange}
-                style={{ width: 'fit', padding: 10}}
+                style={{ width: 'fit', marginBottom: 20}}
                 renderInput={(params) => <TextField {...params} label="Switch user by name..." variant="outlined" />}
                 />
             <Grid container spacing={2}>
