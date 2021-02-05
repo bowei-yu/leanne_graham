@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Post from '../components/Post';
-import Profile from '../components/Profile'
+import Profile from '../components/Profile';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class home extends Component {
     state = {
@@ -11,7 +12,7 @@ class home extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/users?id=1')
         .then(res => {
             this.setState({
                 users: res.data
@@ -32,11 +33,11 @@ class home extends Component {
         
         let usersMarkup = this.state.users ? (
             this.state.users.map(user => <Profile key={user.id} user={user}/>)
-        ) : <p> Loading...</p>
+        ) : <CircularProgress/>
 
         let postsMarkup = this.state.posts ? (
             this.state.posts.map(post => <Post key={post.id} post={post}/>)
-        ) : <p> Loading...</p>
+        ) : <CircularProgress/>
 
         return (
             <Grid container spacing={2}>
