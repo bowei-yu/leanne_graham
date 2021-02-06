@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Image from '../assets/image.jpg';
 // import PhoneIcon from '../assets/icon-24-phone.svg';
@@ -7,7 +6,6 @@ import TagIcon from '../assets/category.png';
 import LocationIcon from '../assets/icon-24-shop.svg'
 
 // UI
-import MuiLink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import LinkIcon from '@material-ui/icons/Link';
 import EmailIcon from '@material-ui/icons/Mail';
@@ -89,9 +87,7 @@ class Profile extends Component {
                             {name}
                         </Typography>
                         <hr/>
-                        <MuiLink component={Link} to={`users/${username}`} color="primary" variant="body1">
                             @{username}
-                        </MuiLink>
                         <hr/>
                         {phone && (
                             <Fragment>
