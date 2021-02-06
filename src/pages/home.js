@@ -1,18 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
+
 import Post from '../components/Post';
 import Profile from '../components/Profile';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 class home extends Component {
     state = {
         posts: null,
         users: null,
         profile: null,
-        userId: 1
+        userId: 1,
+        username: "Leanne Graham"
     }
 
     componentDidMount() {
@@ -36,7 +41,8 @@ class home extends Component {
     onUserChange = (event, values) => {
         this.setState({
           profile: values,
-          userId: values.id
+          userId: values.id,
+          username: values.name
         }, () => {});
     }
 
@@ -48,8 +54,10 @@ class home extends Component {
             : <Profile key={this.state.userId} user={this.state.users[0]}/>)
         : <CircularProgress/>
 
-        let postsMarkup = this.state.posts ? (
-            this.state.posts.map(post => post.userId == this.state.userId ? <Post key={post.id} post={post}/> : null)
+        let postsMarkup = this.state.posts 
+        ? (this.state.posts
+            .filter(post => post.userId == this.state.userId)
+            .map(post => <Post key={post.id} post={post}/>)
         ) : <CircularProgress/>
 
         return (
@@ -68,6 +76,11 @@ class home extends Component {
                     {usersMarkup}
                 </Grid>
                 <Grid item sm={8} xs={12}>
+                    <Paper>
+                        <Typography variant="subtitle1" color="textSecondary" style={{ width: 'fit', marginBottom: 20, padding: 20}}>
+                            {this.state.username} has {postsMarkup.length} posts.
+                        </Typography>
+                    </Paper>
                     {postsMarkup}
                 </Grid>
             </Grid>
