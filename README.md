@@ -73,9 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # b. Objectives I attempted
 
-0. Main objective -> Leanne Graham's user details and posts
+0. Main objective -> shows Leanne Graham's user details and posts
 1. Use React/Typescript in my implementation
 2. Add a visual loader when the data is loading -> in src > pages > home.js, using Material-UI's Circular Progress
 3. Add UI to allow us to switch between users in the list -> autocomplete search/selection bar
-4. Mobile responsiveness -> fits to one column when on mobile, two columns on laptop
+4. Mobile responsiveness -> relatively responsive, fits to one column when on mobile, two columns on laptop
 5. Host the website for preview
